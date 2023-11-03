@@ -47,6 +47,8 @@ steps:
   - '-c'
   - |
     set -x && \
+    # Set to use ssh
+    git remote set-url origin git@github.com:samy-soliman/Flask-kube.git
     # Configure Git to create commits with Cloud Build's service account
     git config user.email $(gcloud auth list --filter=status:ACTIVE --format='value(account)') && \
     # Switch to the production branch and copy the deployment.yml file from the candidate branch
