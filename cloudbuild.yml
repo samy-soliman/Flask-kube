@@ -24,7 +24,6 @@ steps:
   - 'CLOUDSDK_COMPUTE_REGION=us-central1'
   - 'CLOUDSDK_CONTAINER_CLUSTER=pgke-cluster'
 
-
 - name: 'gcr.io/cloud-builders/git'
   secretEnv: ['SSH_KEY']
   entrypoint: 'bash'
@@ -33,7 +32,7 @@ steps:
   - |
     echo "$$SSH_KEY" >> /root/.ssh/id_rsa
     chmod 400 /root/.ssh/id_rsa
-    ssh-keyscan -t rsa github.com > /root/.ssh/known_hosts
+    cp known_hosts.github /root/.ssh/known_hosts
   volumes:
   - name: 'ssh'
     path: /root/.ssh
@@ -64,7 +63,7 @@ steps:
 
 availableSecrets:
   secretManager:
-  - versionName: projects/313782820756/secrets/github/versions/1
+  - versionName: projects/313782820756/secrets/github/versions/2
     env: 'SSH_KEY'
 
 options:
