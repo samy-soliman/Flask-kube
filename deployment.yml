@@ -28,7 +28,7 @@ spec:
     spec:
       containers:
       - name: hello-cloudbuild
-        image: us-east1-docker.pkg.dev/exalted-kit/mongo-registry/flask:6e8c960
+        image: us-east1-docker.pkg.dev/exalted-kit/mongo-registry/flask:93aac4e
         ports:
         - containerPort: 8080
 ---
